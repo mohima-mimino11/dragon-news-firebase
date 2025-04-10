@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import userIcon from "../assets/user.png";
 const Navbar = () => {

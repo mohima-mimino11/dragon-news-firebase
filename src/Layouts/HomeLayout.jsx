@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
+import LeftNavBar from "../components/layout-components/LeftNavBar";
 import Navbar from "../components/Navbar";
 
 
@@ -15,8 +16,10 @@ const HomeLayout = () => {
       <nav className="w-11/12 mx-auto">
         <Navbar></Navbar>
       </nav>
-      <main className="w-11/12 mx-auto pt-5 grid grid-cols-12">
-        <aside className="left col-span-3">Left Navbar</aside>
+      <main className="w-11/12 mx-auto pt-5 grid md:grid-cols-12">
+        <aside className="left col-span-3">
+          <LeftNavBar></LeftNavBar>
+        </aside>
         <section className="col-span-6">Main Content</section>
         <aside className="col-span-3">Right Navbar</aside>
       </main>
