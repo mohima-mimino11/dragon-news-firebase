@@ -27,7 +27,7 @@ const LeftNavBar = () => {
           <figure>
             <img
               src={kid}
-              className='w-[200px]'
+              
               alt="Shoes" />
           </figure>
           <div className="card-body">
@@ -46,7 +46,7 @@ const LeftNavBar = () => {
           <figure>
             <img
               src={office}
-              className='w-[200px]'
+              
               alt="Shoes" />
           </figure>
           <div className="card-body">
@@ -65,7 +65,7 @@ const LeftNavBar = () => {
           <figure>
             <img
               src={stadium}
-              className='w-[200px]'
+             
               alt="Shoes" />
           </figure>
           <div className="card-body">
