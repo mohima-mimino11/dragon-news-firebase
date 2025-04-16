@@ -4,6 +4,7 @@ import office from "../../assets/office.png";
 import stadium from "../../assets/stadium.png";
 import { FaCalendar } from 'react-icons/fa6';
 import moment from 'moment';
+import { NavLink } from 'react-router-dom';
 
 const LeftNavBar = () => {
   const [categories, setCategories] = useState([]);
@@ -20,7 +21,7 @@ const LeftNavBar = () => {
       <h3 className="text-xl font-semibold mb-3">All Category({categories.length})</h3>
       <div className='flex flex-col gap-2'>
         {
-          categories.map(category =><button className='btn' key={category.category_id}>{category.category_name}</button>
+          categories.map(category =><NavLink to={`/category/${category.category_id}`} className='btn' key={category.category_id}>{category.category_name}</NavLink>
           )
         }
         <div className="card bg-base-100 w-96 shadow-xl">
