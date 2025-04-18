@@ -5,7 +5,8 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
   const {createUser, setUser} = useContext(AuthContext);
-  const handleSubmit = (e) =>{
+  // form data get and user setting
+  const handleSubmitRegister = (e) =>{
     e.preventDefault();
     const form = new FormData(e.target);
     const name = form.get("name");
@@ -31,7 +32,7 @@ const Register = () => {
     <div className="min-h-screen flex justify-center items-center ">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 rounded-none p-10">
         <h2 className="text-3xl font-semibold">Register your account</h2>
-        <form onSubmit={handleSubmit} className="card-body">
+        <form onSubmit={handleSubmitRegister} className="card-body">
           {/* name input */}
           <div className="form-control">
             <label className="label">
