@@ -9,6 +9,8 @@ const Login = () => {
   console.log(location);
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  console.log(import.meta.env.VITE_SOME_KEY);
+  
   // form data get and user setting
   const handleSubmitLogin = (e) =>{
     e.preventDefault();
