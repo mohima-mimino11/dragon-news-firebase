@@ -5,7 +5,8 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
-  console.log(user);
+  const [loading, setLoading] = useState(true);
+  console.log(loading, user);
   
   // signup function
   const createUser = (email, password) =>{
@@ -24,12 +25,14 @@ const AuthProvider = ({children}) => {
     setUser,
     createUser,
     logout,
-    userLogin
+    userLogin,
+    loading
   }
   // user state observer
   useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, currentUser=>{
       setUser(currentUser);
+      setLoading(false);
     })
     // unmount or cleanup 
     return ()=>{
