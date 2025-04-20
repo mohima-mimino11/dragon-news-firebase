@@ -1,16 +1,48 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaGithub, FaGoogle, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa6';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const RightNav = () => {
+  const {googleSignIn, setUser, user, githubSignIn} = useContext(AuthContext);
+  const handleGoogleSignIn = () =>{
+    if(user && user?.email){
+      setUser(user);
+      alert("A user already logged in!")
+    }
+    googleSignIn()
+      .then(result =>{
+        const userGoogle = result.user;
+        setUser(userGoogle);
+      })
+      .catch(error =>{
+        console.log(error.message);
+      })
+  }
+  const handleGithubSignIn = () =>{
+    if(user && user?.email){
+      setUser(user);
+      alert("A user is already logged in");
+    }
+    githubSignIn()
+      .then(result =>{
+        const userGithub = result.user;
+        console.log(userGithub);
+        
+        setUser(userGithub)
+      })
+      .catch(error=>{
+        console.log(error.message);
+      })
+  }
   return (
     <div className='flex flex-col gap-4'>
       {/* login section */}
       <h3 className="text-xl font-semibold mb-3">Login With</h3>
       <div className='flex flex-col gap-2 *:w-full'>
-        <button className='btn bg-base-100'>
+        <button onClick={handleGoogleSignIn} className='btn bg-base-100'>
             <FaGoogle></FaGoogle> Login With Google
         </button>
-        <button className='btn bg-base-100'>
+        <button onClick={handleGithubSignIn} className='btn bg-base-100'>
             <FaGithub></FaGithub> Login With Github
         </button>
       </div>

@@ -6,7 +6,7 @@ import RightNav from "../components/layout-components/RightNav";
 const NewsDetails = () => {
   const data = useLoaderData();
   const newsDetail = data.data[0];
-  console.log(newsDetail);
+  // console.log(newsDetail);
   
   return (
     <div className="font-Poppins">

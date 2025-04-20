@@ -6,10 +6,10 @@ import { AuthContext } from "../providers/AuthProvider";
 const Login = () => {
   const {userLogin, setUser} = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  console.log(import.meta.env.VITE_SOME_KEY);
+
   
   // form data get and user setting
   const handleSubmitLogin = (e) =>{
@@ -17,14 +17,14 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     userLogin(email, password)
       .then(result=>{
         setUser(result.user);
         navigate(location?.state ? location.state : "/")
       })
       .catch((err) => {
-        console.log(err.message);
+        // console.log(err.message);
         setError(err.code);
       });
   }
